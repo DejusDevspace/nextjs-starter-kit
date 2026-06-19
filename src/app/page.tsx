@@ -1,65 +1,131 @@
-import Image from "next/image";
+import {
+  ArrowRight,
+  Blocks,
+  DatabaseZap,
+  Replace,
+  ShieldCheck,
+} from "lucide-react";
+import { Container } from "@/components/layout/container";
+import { MarketingShell } from "@/components/layout/marketing-shell";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const pillars = [
+    {
+      icon: Blocks,
+      title: "Modular by default",
+      description:
+        "Config, API, auth, UI, and features live behind clear boundaries so you can replace one layer without rewriting the app.",
+    },
+    {
+      icon: DatabaseZap,
+      title: "Server state solved",
+      description:
+        "TanStack Query, Axios, services, query keys, cache persistence, and mutation feedback are ready to reuse.",
+    },
+    {
+      icon: Replace,
+      title: "Swap-friendly pieces",
+      description:
+        "Auth and UI are intentionally thin abstractions, making it practical to switch providers or component libraries later.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Starter guardrails",
+      description:
+        "Typed env parsing, route config, tokens, tests, formatting, and docs reduce setup decisions on every new project.",
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <MarketingShell>
+      <main>
+        <section className="relative overflow-hidden border-b border-border-subtle">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,var(--color-accent-muted),transparent_34%),linear-gradient(135deg,var(--color-bg-page),var(--color-bg-muted))]" />
+          <Container className="grid min-h-[calc(100vh-4rem)] items-center gap-12 py-24 lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="max-w-3xl">
+              <p className="mb-5 inline-flex rounded-full border border-accent-border bg-accent-muted px-3 py-1 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                Next.js Starter Kit
+              </p>
+              <h1 className="font-sans text-5xl font-semibold leading-[0.96] tracking-[-0.06em] text-text-primary sm:text-7xl">
+                A reusable frontend foundation that stays easy to replace.
+              </h1>
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-text-secondary">
+                App Router, TypeScript, Tailwind tokens, TanStack Query, Axios,
+                typed config, theme handling, toast feedback, and feature-first
+                folders without backend assumptions.
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <Button asChild href="/dashboard" size="lg">
+                  View dashboard shell <ArrowRight size={18} />
+                </Button>
+                <Button
+                  asChild
+                  href="#architecture"
+                  variant="secondary"
+                  size="lg"
+                >
+                  See architecture
+                </Button>
+              </div>
+            </div>
+
+            <div className="rounded-4xl border border-border-subtle bg-bg-surface/80 p-5 shadow-2xl shadow-black/10 backdrop-blur">
+              <div className="rounded-[1.4rem] border border-border-subtle bg-bg-elevated p-5">
+                <div className="mb-5 flex items-center justify-between">
+                  <span className="font-mono text-xs text-text-tertiary">
+                    src/
+                  </span>
+                  <span className="rounded-full bg-success-muted px-2 py-1 font-mono text-[0.65rem] text-success">
+                    modular
+                  </span>
+                </div>
+                {[
+                  "config/app.ts",
+                  "lib/api/client.ts",
+                  "lib/query/query-client.ts",
+                  "components/providers/app-providers.tsx",
+                  "features/example",
+                  "components/ui",
+                ].map((path) => (
+                  <div
+                    key={path}
+                    className="mb-2 rounded-lg border border-border-subtle bg-bg-page px-4 py-3 font-mono text-sm text-text-secondary"
+                  >
+                    {path}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        <section id="architecture" className="py-20">
+          <Container>
+            <div className="mb-10 max-w-2xl">
+              <p className="font-mono text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                Core architecture
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-text-primary">
+                Built for fast starts, not future rewrites.
+              </h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {pillars.map((pillar) => (
+                <article key={pillar.title} className="card">
+                  <pillar.icon className="mb-5 text-accent" size={24} />
+                  <h3 className="text-xl font-semibold tracking-[-0.03em]">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-3 leading-7 text-text-secondary">
+                    {pillar.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </Container>
+        </section>
       </main>
-    </div>
+    </MarketingShell>
   );
 }
