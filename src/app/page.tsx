@@ -6,6 +6,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import Link from "next/link";
 import { MarketingShell } from "@/components/layout/marketing-shell";
 import { Button } from "@/components/ui/button";
 
@@ -56,14 +57,13 @@ export default function Home() {
                 folders without backend assumptions.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Button asChild href="/dashboard" size="lg">
+                <Button size="lg" render={<Link href="/dashboard" />}>
                   View dashboard shell <ArrowRight size={18} />
                 </Button>
                 <Button
-                  asChild
-                  href="#architecture"
                   variant="secondary"
                   size="lg"
+                  render={<Link href="#architecture" />}
                 >
                   See architecture
                 </Button>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui";
 
 export default function NotFound() {
@@ -7,14 +8,14 @@ export default function NotFound() {
         <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">
           404
         </p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-[-0.05em]">
+        <h1 className="mt-3 text-4xl font-semibold tracking-tighter">
           Page not found
         </h1>
         <p className="mt-4 leading-7 text-text-secondary">
           This starter includes a reusable not-found boundary. Replace the copy
           and visual treatment per project.
         </p>
-        <Button asChild href="/" className="mt-6">
+        <Button className="mt-6" render={<Link href="/" />}>
           Back home
         </Button>
       </div>
