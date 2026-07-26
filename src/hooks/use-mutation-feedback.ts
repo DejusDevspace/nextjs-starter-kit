@@ -1,14 +1,12 @@
 "use client";
 
-import { useToast } from "@/context/toast-context";
+import { toast } from "sonner";
 import { getErrorMessage } from "@/lib/utils/errors";
 
 export function useMutationFeedback() {
-  const toast = useToast();
-
   return {
     onSuccess: (message = "Changes saved") => toast.success(message),
     onError: (error: unknown, title = "Request failed") =>
-      toast.error(title, getErrorMessage(error)),
+      toast.error(title, { description: getErrorMessage(error) }),
   };
 }

@@ -1,7 +1,11 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans);
   --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
   --color-bg-page: var(--color-bg-page);
@@ -24,6 +28,44 @@
   --color-warning-muted: var(--color-warning-muted);
   --color-danger: var(--color-danger);
   --color-danger-muted: var(--color-danger-muted);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
@@ -48,9 +90,44 @@
   --color-danger: #b93939;
   --color-danger-muted: #b9393918;
   --radius-card: 1rem;
+
+  --background: var(--color-bg-page);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-bg-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-bg-surface);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-text-inverse);
+  --secondary: var(--color-bg-muted);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-bg-muted);
+  --muted-foreground: var(--color-text-tertiary);
+  --accent: var(--color-bg-muted);
+  --accent-foreground: var(--color-text-primary);
+  --destructive: var(--color-danger);
+  --destructive-foreground: var(--color-text-inverse);
+  --border: var(--color-border-default);
+  --input: var(--color-border-subtle);
+  --ring: var(--color-accent);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: var(--color-bg-surface);
+  --sidebar-foreground: var(--color-text-primary);
+  --sidebar-primary: var(--color-accent);
+  --sidebar-primary-foreground: var(--color-text-inverse);
+  --sidebar-accent: var(--color-bg-muted);
+  --sidebar-accent-foreground: var(--color-text-primary);
+  --sidebar-border: var(--color-border-subtle);
+  --sidebar-ring: var(--color-accent);
 }
 
-[data-theme="dark"] {
+[data-theme="dark"],
+.dark {
   --color-bg-page: #14110d;
   --color-bg-muted: #1f1a14;
   --color-bg-surface: #211b14;
@@ -71,51 +148,50 @@
   --color-warning-muted: #e0ad5718;
   --color-danger: #ff7a7a;
   --color-danger-muted: #ff7a7a18;
+
+  --background: var(--color-bg-page);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-bg-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-bg-surface);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-text-inverse);
+  --secondary: var(--color-bg-muted);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-bg-muted);
+  --muted-foreground: var(--color-text-tertiary);
+  --accent: var(--color-bg-muted);
+  --accent-foreground: var(--color-text-primary);
+  --destructive: var(--color-danger);
+  --destructive-foreground: var(--color-text-inverse);
+  --border: var(--color-border-default);
+  --input: var(--color-border-subtle);
+  --ring: var(--color-accent);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: var(--color-bg-surface);
+  --sidebar-foreground: var(--color-text-primary);
+  --sidebar-primary: var(--color-accent);
+  --sidebar-primary-foreground: var(--color-text-inverse);
+  --sidebar-accent: var(--color-bg-muted);
+  --sidebar-accent-foreground: var(--color-text-primary);
+  --sidebar-border: var(--color-border-subtle);
+  --sidebar-ring: var(--color-accent);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-::selection {
-  background: var(--color-accent-muted);
-  color: var(--color-accent);
-}
-
-@layer components {
-  .card {
-    border: 1px solid var(--color-border-subtle);
-    border-radius: var(--radius-card);
-    background: var(--color-bg-surface);
-    padding: 1.5rem;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-
-  .focus-ring {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+  body {
+    @apply bg-background text-foreground;
   }
-
-  .focus-ring:focus-visible {
-    outline-color: var(--color-accent);
+  html {
+    @apply font-sans;
   }
 }
