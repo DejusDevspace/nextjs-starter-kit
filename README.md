@@ -17,6 +17,7 @@ toast feedback, layout primitives, and a feature-first folder pattern.
 - React Hook Form
 - Vitest + Testing Library
 - Prettier + ESLint
+- Serwist (PWA)
 
 ## Getting Started
 
