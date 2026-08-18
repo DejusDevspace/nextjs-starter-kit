@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { AppProviders } from "@/components/providers/app-providers";
 import { appConfig } from "@/config/app";
 import { createMetadata } from "@/lib/utils/metadata";
@@ -12,6 +12,10 @@ export const metadata: Metadata = createMetadata({
   title: appConfig.name,
   description: appConfig.description,
 });
+
+export const viewport: Viewport = {
+  themeColor: "#ff9f5a",
+};
 
 export default function RootLayout({
   children,
