@@ -4,6 +4,7 @@ import {
   DatabaseZap,
   Replace,
   ShieldCheck,
+  Smartphone,
 } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import Link from "next/link";
@@ -35,6 +36,12 @@ export default function Home() {
       title: "Starter guardrails",
       description:
         "Typed env parsing, route config, tokens, tests, formatting, and docs reduce setup decisions on every new project.",
+    },
+    {
+      icon: Smartphone,
+      title: "PWA Ready",
+      description:
+        "Fully installable as a Progressive Web App with offline caching, a web manifest, and optimized icons powered by Serwist.",
     },
   ];
 
